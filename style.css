@@ -1,5 +1,77 @@
-@import url("https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
   background-color: crimson; /* may have red texture */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 2fr 1.5fr;
+}
+
+.gameInfo {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+h1 {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  justify-self: right;
+  margin-top: 5rem;
+  margin-right: 5rem;
+}
+
+.demonSpawner {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  justify-self: center;
+
+  margin: 1rem;
+  max-height: 15rem;
+}
+
+.demonSpawner:hover {
+  transform: scale(1.2);
+}
+
+.demonSpawner:active {
+  /*turn into animation*/
+  background-color: aliceblue;
+  border: 10px solid aliceblue;
+}
+
+.gameInfo {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.shop-container {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  background-color: rgba(240, 248, 255, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 75%;
+}
+
+.upgradeButton {
+  min-width: 75%;
+  min-height: 2rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
 }

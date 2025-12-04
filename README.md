@@ -10,3 +10,7 @@ Reflection
     🎯 Use local storage to save and restore the cookie count and relevant game information.
     🎯 Use setInterval to increment the cookie count and manage the game state each second.
         Managing the game state includes saving progress and updating the DOM.
+
+sources:
+
+<a href="https://www.flaticon.com/free-icons/demon" title="demon icons">Demon icons created by Smashicons - Flaticon</a>
