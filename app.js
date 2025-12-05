@@ -125,11 +125,31 @@ async function cookieClickerAPI() {
 
   //TODO: the interval
   setInterval(function () {
-    stats.demonCount = stats.demonCount + stats.dps; //totalCookieCount = totalCookieCount + cps
+    parsedStats.demonCount = parsedStats.demonCount + parsedStats.dps; //totalCookieCount = totalCookieCount + cps
     //update the DOM to reflect the changes in the values
     // clear the html
     // add new html elements with each increment
     // save the values in local storage
+
+    //we need to add the purchased upgrade to local storage ONLY FOR ANIMATIONS
+    //        localStorage.setItem("colorSetting", "#a4509b");
+
+    //stringifies the full object game state
+    const stringifiedStats = JSON.stringify(parsedStats);
+    //saves the full object game state
+    localStorage.setItem("stats", stringifiedStats);
+
+    //updates the game UI
+
+    const demonCounterUI = document.getElementById("gameInfo");
+    demonCounterUI.innerHTML = null;
+    const newTotalDemons = document.createElement("p");
+    newTotalDemons.textContent = `Total Demons Spawned: ${parsedStats.demonCount}`;
+    const newDemonsPS = document.createElement("p");
+    newDemonsPS.textContent = `Total Demons Spawning Per Second: ${parsedStats.dps}`;
+
+    demonCounterUI.appendChild(newTotalDemons);
+    demonCounterUI.appendChild(newDemonsPS);
   }, 1000);
 }
 
