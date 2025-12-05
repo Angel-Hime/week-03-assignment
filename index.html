@@ -6,24 +6,28 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="shortcut icon" href="images/pentagram.png" type="image/x-icon" />
     <script src="app.js" defer></script>
-    <title>Clicker Game - Daemon Summoner!</title>
+    <title>Clicker Game - Demon Summoner!</title>
   </head>
   <body>
-    <h1>Demon Summoner!</h1>
-    <!-- clickable element - IMG -->
-    <img
-      id="demonSpawner"
-      class="demonSpawner"
-      src="images/devils-tower.png"
-      alt="Summon deamons onto earth by clicking on the Pentagon"
-    />
+    <div class="mainClicker">
+      <h1>Demon Summoner!</h1>
 
-    <section id="gameInfo">
-      <p>Total Demons Spawned: 0</p>
-      <p>Total Demons Spawning Per Second: 0</p>
-    </section>
+      <img
+        id="demonSpawner"
+        class="demonSpawner"
+        src="images/spawnerPent.png"
+        alt="Summon deamons onto earth by clicking on the Pentagon"
+      />
 
-    <!-- container for the shop upgrages -->
-    <section id="shop-container"></section>
+      <section class="gameUI" id="gameUI">
+        <section id="gameInfo" class="gameInfo">
+          <p>Total Demons Spawned: 0</p>
+          <p>Total Demons Spawning Per Second: 0</p>
+        </section>
+        <menu id="menu"> </menu>
+      </section>
+    </div>
+
+    <section id="shop-container" class="shop-container"></section>
   </body>
 </html>

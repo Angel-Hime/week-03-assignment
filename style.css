@@ -2,86 +2,206 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
+  color: rgb(196, 200, 203);
+  font-family: "Adobe Fangsong Std R", serif;
 }
 
 body {
-  background-color: crimson; /* may have red texture */
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 2fr 1.5fr;
+  background-image: url("./images/background.jpg");
+  border: 5px ridge red;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-.gameInfo {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 1;
-  grid-row-end: 2;
-}
+.mainClicker {
+  background: content-box radial-gradient(rgb(121, 22, 42), skyblue);
 
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: 5px;
+}
 h1 {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 1;
-  grid-row-end: 2;
-  justify-self: right;
-  margin-top: 5rem;
-  margin-right: 5rem;
+  background-color: #490505;
+  text-align: center;
+  padding: 10px;
+  border: 10px inset crimson;
+  border-radius: 5px 5px 0px 0px;
 }
-
 .demonSpawner {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 2;
-  grid-row-end: 3;
-  justify-self: center;
-
+  max-height: 50vh;
+  min-height: 25vh;
   margin: 1rem;
-  max-height: 15rem;
+  animation-name: grow-shrink;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+}
+@keyframes grow-shrink {
+  0% {
+    scale: 100%;
+  }
+  20% {
+    scale: 110%;
+  }
+  40% {
+    scale: 120%;
+  }
+  60% {
+    scale: 110%;
+  }
+  100% {
+    scale: 100%;
+  }
 }
 
 .demonSpawner:hover {
   transform: scale(1.2);
+  animation-name: rotate;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(360deg);
+  }
 }
 
 .demonSpawner:active {
-  /*turn into animation*/
-  background-color: aliceblue;
-  border: 10px solid aliceblue;
+  animation-name: grow-shrink;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+}
+@keyframes grow-shrink {
+  0% {
+    scale: 100%;
+  }
+  50% {
+    scale: 120%;
+  }
+  100% {
+    scale: 100%;
+  }
 }
 
+.gameUI {
+  min-height: fit-content;
+  min-width: fit-content;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  align-items: center;
+  justify-content: center;
+  background-color: #490505;
+  text-align: center;
+  padding: 11px;
+  border: 10px inset crimson;
+  border-radius: 0px 0px 5px 5px;
+}
 .gameInfo {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 1;
-  grid-row-end: 2;
-}
-
-.resetButton {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 1;
-  grid-row-end: 2;
-  justify-self: right;
-
-  max-height: 2rem;
-}
-
-.shop-container {
+  min-height: fit-content;
+  max-height: fit-content;
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 3;
-  background-color: rgba(240, 248, 255, 0.6);
+}
+
+.resetButton {
+  background-color: #490505;
+  text-align: center;
+  padding: 10px;
+  border: 10px inset crimson;
+  border-radius: 0px 5px 0px 5px;
+
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+.resetButton:hover {
+  box-shadow: 5px 3px rgb(24, 14, 14), -0.5em 0 1em #d0bbbb;
+}
+
+#shop-container {
+  justify-self: center;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 75%;
+  align-items: center;
+  max-width: 50vw;
+  min-height: 40vh;
+  min-width: 50vw;
+  padding: 1rem;
 }
 
 .upgradeButton {
-  min-width: 75%;
-  min-height: 2rem;
-  font-size: 1.2rem;
-  font-weight: 500;
+  min-width: 40vw;
+  min-height: fit-content;
+  max-height: 10vh;
+  font-size: 1rem;
+
   letter-spacing: 0.2em;
+
+  position: relative;
+  background-color: #490505;
+  border: 5px ridge red;
+  border-radius: 10px;
+
+  text-align: center;
+
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+
+  margin: 0.5rem;
+}
+.upgradeButton:hover {
+  background-color: #490505;
+  border: 5px ridge red;
+  box-shadow: inset 5em 1em rgb(24, 14, 14);
+  border-radius: 10px;
+}
+.upgradeButton:after {
+  content: "";
+  background: #f1f1f1;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s;
+}
+
+.upgradeButton:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s;
+}
+
+@media (max-width: 700px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .mainClicker {
+    justify-content: center;
+    padding: 10px;
+    width: max-content;
+    border-radius: 5px;
+  }
+  .demonSpawner {
+    max-height: 15vh;
+  }
 }
