@@ -28,8 +28,8 @@ async function cookieClickerAPI() {
 
   //TODO: Construct the Base Game State
   //saves the BASE POINT full object game state
-  const stringifiedStats = JSON.stringify(stats); //this is in  js
-  localStorage.setItem("stats", stringifiedStats); //this is in JSON
+  // const stringifiedStats = JSON.stringify(stats); //this is in  js
+  // localStorage.setItem("stats", stringifiedStats); //this is in JSON
 
   //Reads whatever current state we have
   const storedStats = localStorage.getItem("stats"); //this is in JSON
@@ -50,16 +50,14 @@ async function cookieClickerAPI() {
     //CLICKER EVENT
     const demonSpawner = document.getElementById("demonSpawner");
     demonSpawner.addEventListener("click", function spawnDemon() {
+      //-increments demon count state
+      parsedStats.demonCount++; 
+
       //stringifies the full object game state
       const stringifiedStats = JSON.stringify(parsedStats);
       //saves the full object game state
       localStorage.setItem("stats", stringifiedStats);
 
-      //-increments demon count state
-      stats.demonCount = parsedStats.demonCount++; // so far the issue is that the first click increments a local data and not stored data
-
-      //saves the full object game state
-      localStorage.setItem("stats", stringifiedStats);
       //updates the game UI
 
       const demonCounterUI = document.getElementById("gameInfo");
@@ -77,7 +75,6 @@ async function cookieClickerAPI() {
   demonClicker();
 
   //TODO: create multiple DOM elements to contain the upgrades (loop)
-
   //TODO: create DOM elements for the shop upgrades
   //- create element
   //loop through the object
@@ -85,14 +82,15 @@ async function cookieClickerAPI() {
     const upgradeButton = document.createElement("button");
 
     //CHANGE THIS!! -> create a new array to run through with a for loop and add the name
-    //- assign the value to its property (textContent)
-    upgradeButton.textContent = upgrade.name;
+
     const shopContainer = document.getElementById("shop-container");
     //- append it to the DOM
     shopContainer.appendChild(upgradeButton);
     upgradeButton.className = "upgradeButton";
     // after you complete this task, you should see the upgrades in your shop-container!
 
+    //- assign the value to its property (textContent)
+    upgradeButton.textContent = `${upgrade.name} ${upgrade.cost}`;
     const upgradeName = upgrade.name;
     const upgradeID = upgrade.id;
     const upgradeCost = upgrade.cost;
@@ -102,6 +100,25 @@ async function cookieClickerAPI() {
 
     upgradeButton.addEventListener("click", function buyUpgrade() {
       if (upgradeID === "1") {
+
+      }else if (upgradeID === "2"&&  ) {
+        
+      }else if (upgradeID === "3") {
+        
+      }else if (upgradeID === "4") {
+        
+      }else if (upgradeID === "5") {
+        
+      }else if (upgradeID === "6") {
+        
+      }else if (upgradeID === "7") {
+        
+      }else if (upgradeID === "8") {
+        
+      }else if (upgradeID === "9") {
+        
+      }else if (upgradeID === "10") {
+        
       }
     });
   });
