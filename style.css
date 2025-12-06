@@ -3,75 +3,109 @@
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
-  color: rgb(196, 200, 203);
-  font-family: "Adobe Fangsong Std R", serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 body {
-  background-image: url("./images/background.jpg");
-  border: 5px ridge red;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
+  display: grid;
+  background-image: url("images/back-1.webp");
+  background-position: stretch;
+  grid-template-columns: 0.1fr 2fr 0.1fr 2fr 0.1fr;
+  grid-template-rows: 5fr;
+  justify-items: center;
+  align-content: center;
 }
 
 .mainClicker {
-  background: content-box radial-gradient(rgb(121, 22, 42), skyblue);
-
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 4;
   display: flex;
   flex-direction: column;
   gap: 20px;
   border-radius: 5px;
+  min-width: 30vw;
+  max-width: fit-content;
+  padding: 1rem;
 }
 h1 {
-  background-color: #490505;
   text-align: center;
   padding: 10px;
-  border: 10px inset crimson;
-  border-radius: 5px 5px 0px 0px;
+  border: 10px inset rgb(85, 13, 13);
+  border-radius: 0px 10px 0px 10px;
+  color: whitesmoke;
+  text-shadow: #882929 -2px 2px 3px;
+  background-image: url("images/black-mesh.webp");
 }
 .demonSpawner {
-  max-height: 50vh;
-  min-height: 25vh;
-  margin: 1rem;
+  max-height: 40vh;
+  min-height: 20vh;
+  min-width: auto;
+  cursor: pointer;
+  margin: 2.3rem;
   animation-name: grow-shrink;
-  animation-duration: 2.5s;
+  animation-duration: 5s;
   animation-iteration-count: infinite;
 }
 @keyframes grow-shrink {
   0% {
-    scale: 100%;
+    scale: 70%;
   }
   20% {
-    scale: 110%;
+    scale: 80%;
   }
   40% {
-    scale: 120%;
+    scale: 90%;
   }
   60% {
-    scale: 110%;
-  }
-  100% {
     scale: 100%;
   }
+  80% {
+    scale: 90%;
+  }
+  100% {
+    scale: 80%;
+  }
 }
-
 .demonSpawner:hover {
-  transform: scale(1.2);
-  animation-name: rotate;
-  animation-duration: 5s;
+  animation: rotate 10s, grow-shrink 5s;
   animation-iteration-count: infinite;
+}
+@keyframes grow-shrink {
+  0% {
+    scale: 70%;
+  }
+  20% {
+    scale: 80%;
+  }
+  40% {
+    scale: 90%;
+  }
+  60% {
+    scale: 100%;
+  }
+  80% {
+    scale: 90%;
+  }
+  100% {
+    scale: 80%;
+  }
 }
 @keyframes rotate {
   0% {
     transform: rotate(0);
   }
-  50% {
-    transform: rotate(360deg);
+  25% {
+    transform: rotate(30deg);
+  }
+  75% {
+    transform: rotate(-30deg);
+  }
+  100% {
+    transform: rotate(0);
   }
 }
-
 .demonSpawner:active {
   animation-name: grow-shrink;
   animation-duration: 0.5s;
@@ -88,7 +122,6 @@ h1 {
     scale: 100%;
   }
 }
-
 .gameUI {
   min-height: fit-content;
   min-width: fit-content;
@@ -96,11 +129,11 @@ h1 {
   grid-template-rows: repeat(3, 1fr);
   align-items: center;
   justify-content: center;
-  background-color: #490505;
+  background-image: url("images/black-mesh.webp");
   text-align: center;
   padding: 11px;
-  border: 10px inset crimson;
-  border-radius: 0px 0px 5px 5px;
+  border: 10px inset rgb(85, 13, 13);
+  border-radius: 0px 10px 0px 10px;
 }
 .gameInfo {
   min-height: fit-content;
@@ -109,60 +142,59 @@ h1 {
   grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 3;
-}
-
-.resetButton {
-  background-color: #490505;
+  color: whitesmoke;
+  text-shadow: #882929 -2px 2px 3px;
   text-align: center;
   padding: 10px;
-  border: 10px inset crimson;
-  border-radius: 0px 5px 0px 5px;
-
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 3;
-  grid-row-end: 4;
+  border: 10px inset rgb(85, 13, 13);
+  border-radius: 0px 10px 0px 10px;
+}
+.resetButton {
+  background-color: #fcfcfc;
+  text-align: center;
+  padding: 10px;
+  border: 10px inset rgb(85, 13, 13);
+  border-radius: 0px 10px 0px 10px;
+  cursor: pointer;
 }
 .resetButton:hover {
-  box-shadow: 5px 3px rgb(24, 14, 14), -0.5em 0 1em #d0bbbb;
+  box-shadow: 5px 3px 3px rgba(214, 202, 202, 0.705), -0.5em 0 1em #882929;
 }
 
 #shop-container {
-  justify-self: center;
-
+  grid-column-start: 4;
+  grid-column-end: 5;
+  grid-row-start: 2;
+  grid-row-end: 3;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  max-width: 50vw;
-  min-height: 40vh;
-  min-width: 50vw;
-  padding: 1rem;
-}
-
-.upgradeButton {
-  min-width: 40vw;
-  min-height: fit-content;
-  max-height: 10vh;
-  font-size: 1rem;
-
-  letter-spacing: 0.2em;
-
-  position: relative;
-  background-color: #490505;
-  border: 5px ridge red;
+  align-content: center;
+  flex-wrap: wrap;
+  min-width: fit-content;
+  max-height: fit-content;
+  border: 10px inset rgb(85, 13, 13);
   border-radius: 10px;
-
+  background-image: url("images/black-mesh.webp");
+  padding: 0px 0px 5px 5px;
+}
+.upgradeButton {
+  min-width: 25vw;
+  min-height: fit-content;
+  margin: 5px 5px 0px 0px;
+  font-size: 1rem;
+  padding: 0.5rem;
+  letter-spacing: 0.2em;
+  position: relative;
+  border: 5px inset rgb(85, 13, 13);
+  border-radius: 10px;
   text-align: center;
-
   transition-duration: 0.4s;
   text-decoration: none;
   overflow: hidden;
   cursor: pointer;
-
-  margin: 0.5rem;
 }
 .upgradeButton:hover {
+  color: whitesmoke;
   background-color: #490505;
   border: 5px ridge red;
   box-shadow: inset 5em 1em rgb(24, 14, 14);
@@ -180,7 +212,6 @@ h1 {
   opacity: 0;
   transition: all 0.8s;
 }
-
 .upgradeButton:active:after {
   padding: 0;
   margin: 0;
@@ -202,6 +233,6 @@ h1 {
     border-radius: 5px;
   }
   .demonSpawner {
-    max-height: 15vh;
+    max-height: 40vh;
   }
 }

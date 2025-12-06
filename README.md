@@ -1,6 +1,6 @@
 # week-03-assignment
 
-a clicker game
+The main game loop being a clicker style game, with purchasable upgrades. The indication of the clicker is the pulsing (animated) summoning circle icon. An upgrade list provided alongside text indicators.
 
 Reflection
 
@@ -17,7 +17,7 @@ The only trouble that I had with this was using my own names; could there have b
     🎯 Use setInterval to increment the cookie count and manage the game state each second.
         Managing the game state includes saving progress and updating the DOM. ✔️
 
-Design Aspects
+Design Aspects:
 
 I phoned in the design aspects this week after having the flu for the entire time so not really having the brain capacity.
 
@@ -29,13 +29,11 @@ STRETCH GOALS:
 
 🏹 Improve UX with animations, sound effects, or other visual effects. ✔️
 
-🏹 Fantastic use of README to provide important information such as a description of the project, how to deploy and other app information.
+🏹 Fantastic use of README to provide important information such as a description of the project, how to deploy and other app information. ❌
 
     May I ask what you mean by 'how to deploy' please?
 
-🏹 Create a menu for users to adjust game options like sound effects or display preferences.
-
-The main game loop being a clicker style game, with purchasable upgrades. The indication of the clicker is the pulsing (animated) summoning circle icon.
+🏹 Create a menu for users to adjust game options like sound effects or display preferences. ❌
 
 Sources:
 
