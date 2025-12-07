@@ -129,10 +129,9 @@ async function cookieClickerAPI() {
   upgrade2000.appendChild(upgrade2000P1).appendChild(upgrade2000P2);
 
   setInterval(function () {
-    parsedStats.demonCount = parsedStats.demonCount + parsedStats.dps;
     const stringifiedStats = JSON.stringify(parsedStats);
     localStorage.setItem("stats", stringifiedStats);
-
+    parsedStats.demonCount = parsedStats.demonCount + parsedStats.dps;
     //updates the game UI
     const demonCounterUI = document.getElementById("gameInfo");
     demonCounterUI.innerHTML = null;
