@@ -35,8 +35,8 @@ async function cookieClickerAPI() {
     parsedStats.dps = 0;
     parsedStats.demonCount = 0;
 
-    const stringifiedStats = JSON.stringify(stats); //this is in  js
-    localStorage.setItem("stats", stringifiedStats); //this is in JSON)
+    const stringifiedStats = JSON.stringify(stats);
+    localStorage.setItem("stats", stringifiedStats);
 
     //updates the game UI
     const demonCounterUI = document.getElementById("gameInfo");
@@ -45,17 +45,13 @@ async function cookieClickerAPI() {
     newTotalDemons.textContent = `Total Demons Summoned: ${parsedStats.demonCount}`;
     const newDemonsPS = document.createElement("p");
     newDemonsPS.textContent = `Total Demons Summoned Per Second: ${parsedStats.dps}`;
-
     demonCounterUI.appendChild(newTotalDemons);
     demonCounterUI.appendChild(newDemonsPS);
   });
 
-  //Reads whatever current state we have
-  const storedStats = localStorage.getItem("stats"); //this is in JSON
-  // changes to js
-  const parsedStats = JSON.parse(storedStats); //this is now in js
+  const storedStats = localStorage.getItem("stats");
+  const parsedStats = JSON.parse(storedStats);
 
-  //updates the game UI
   const demonCounterUI = document.getElementById("gameInfo");
   demonCounterUI.innerHTML = null;
   const newTotalDemons = document.createElement("p");
@@ -75,22 +71,13 @@ async function cookieClickerAPI() {
       upgradeSummonSound.volume = 0.25;
       upgradeSummonSound.play();
 
-      // //- animation on click
-      // const demonSpawn = document.createElement("img");
-      // demonSpawn.src = "";
-      // demonSpawn.id = "demonSpawn";
-      // demonSpawner.appendChild(demonSpawn);
-
       //-increments demon count state
       parsedStats.demonCount++;
 
-      //stringifies the full object game state
       const stringifiedStats = JSON.stringify(parsedStats);
-      //saves the full object game state
       localStorage.setItem("stats", stringifiedStats);
 
       //updates the game UI
-
       const demonCounterUI = document.getElementById("gameInfo");
       demonCounterUI.innerHTML = null;
       const newTotalDemons = document.createElement("p");
@@ -128,18 +115,15 @@ async function cookieClickerAPI() {
         parsedStats.dps = parsedStats.dps + upgrade.increase;
 
         const stringifiedStats = JSON.stringify(parsedStats);
-        //saves the full object game state
         localStorage.setItem("stats", stringifiedStats);
 
         //updates the game UI
-
         const demonCounterUI = document.getElementById("gameInfo");
         demonCounterUI.innerHTML = null;
         const newTotalDemons = document.createElement("p");
         newTotalDemons.textContent = `Total Demons Summoned: ${parsedStats.demonCount}`;
         const newDemonsPS = document.createElement("p");
         newDemonsPS.textContent = `Total Demons Summoned Per Second: ${parsedStats.dps}`;
-
         demonCounterUI.appendChild(newTotalDemons);
         demonCounterUI.appendChild(newDemonsPS);
       }
@@ -219,20 +203,16 @@ async function cookieClickerAPI() {
 
   setInterval(function () {
     parsedStats.demonCount = parsedStats.demonCount + parsedStats.dps;
-    //stringifies the full object game state
     const stringifiedStats = JSON.stringify(parsedStats);
-    //saves the full object game state
     localStorage.setItem("stats", stringifiedStats);
 
     //updates the game UI
-
     const demonCounterUI = document.getElementById("gameInfo");
     demonCounterUI.innerHTML = null;
     const newTotalDemons = document.createElement("p");
     newTotalDemons.textContent = `Total Demons Summoned: ${parsedStats.demonCount}`;
     const newDemonsPS = document.createElement("p");
     newDemonsPS.textContent = `Total Demons Summoned Per Second: ${parsedStats.dps}`;
-
     demonCounterUI.appendChild(newTotalDemons);
     demonCounterUI.appendChild(newDemonsPS);
   }, 1000);

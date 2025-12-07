@@ -122,15 +122,6 @@ h1 {
     scale: 100%;
   }
 }
-/* #demonSpawn {
-  animation: slide-out 3s infinite alternate;
-
-  
-}
-@keyframes slide-out {
-  0% {
-  }
-} */
 
 .gameUI {
   min-height: fit-content;
