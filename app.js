@@ -1,3 +1,13 @@
+//start audio
+const openingAudio = document.createElement("audio");
+openingAudio.src = "audio/LUCIFER.mp3";
+openingAudio.play();
+//background audio
+const backgroundSound = document.createElement("audio");
+backgroundSound.src = "audio/lava-loop.wav";
+backgroundSound.loop = true;
+backgroundSound.play();
+
 let stats = {
   demonCount: 0,
   dps: 0,
@@ -8,91 +18,6 @@ async function cookieClickerAPI() {
     "https://cookie-upgrade-api.vercel.app/api/upgrades"
   );
   const upgradeObject = await response.json();
-
-  //start audio
-  const openingAudio = document.createElement("audio");
-  openingAudio.src = "audio/LUCIFER.mp3";
-  openingAudio.play();
-  //background audio
-  const backgroundSound = document.createElement("audio");
-  backgroundSound.src = "audio/lava-loop.wav";
-  backgroundSound.loop = true;
-  backgroundSound.play();
-
-  //reset button
-  const resetButton = document.createElement("button");
-  resetButton.className = "resetButton";
-  resetButton.textContent = "RESET GAME";
-
-  const gameMenu = document.getElementById("menu");
-  gameMenu.appendChild(resetButton);
-
-  resetButton.addEventListener("click", function () {
-    const summonSound = document.createElement("audio");
-    summonSound.src = "audio/LUCIFER.mp3";
-    summonSound.volume = 0.25;
-    summonSound.id = "sound";
-    summonSound.play();
-
-    parsedStats.dps = 0;
-    parsedStats.demonCount = 0;
-
-    const stringifiedStats = JSON.stringify(stats);
-    localStorage.setItem("stats", stringifiedStats);
-
-    //updates the game UI
-    const demonCounterUI = document.getElementById("gameInfo");
-    demonCounterUI.innerHTML = null;
-    const newTotalDemons = document.createElement("p");
-    newTotalDemons.textContent = `Total Demons Summoned: ${parsedStats.demonCount}`;
-    const newDemonsPS = document.createElement("p");
-    newDemonsPS.textContent = `Total Demons Summoned Per Second: ${parsedStats.dps}`;
-    demonCounterUI.appendChild(newTotalDemons);
-    demonCounterUI.appendChild(newDemonsPS);
-  });
-
-  const storedStats = localStorage.getItem("stats");
-  const parsedStats = JSON.parse(storedStats);
-
-  const demonCounterUI = document.getElementById("gameInfo");
-  demonCounterUI.innerHTML = null;
-  const newTotalDemons = document.createElement("p");
-  newTotalDemons.textContent = `Total Demons Summoned: ${parsedStats.demonCount}`;
-  const newDemonsPS = document.createElement("p");
-  newDemonsPS.textContent = `Total Demons Summoned Per Second: ${parsedStats.dps}`;
-  demonCounterUI.appendChild(newTotalDemons);
-  demonCounterUI.appendChild(newDemonsPS);
-
-  function demonClicker() {
-    //CLICKER EVENT
-    const demonSpawner = document.getElementById("demonSpawner");
-    demonSpawner.addEventListener("click", function spawnDemon() {
-      //- sound on click
-      const upgradeSummonSound = document.createElement("audio");
-      upgradeSummonSound.src = "audio/click.m4a";
-      upgradeSummonSound.volume = 0.25;
-      upgradeSummonSound.play();
-
-      //-increments demon count state
-      parsedStats.demonCount++;
-
-      const stringifiedStats = JSON.stringify(parsedStats);
-      localStorage.setItem("stats", stringifiedStats);
-
-      //updates the game UI
-      const demonCounterUI = document.getElementById("gameInfo");
-      demonCounterUI.innerHTML = null;
-      const newTotalDemons = document.createElement("p");
-      newTotalDemons.textContent = `Total Demons Summoned: ${parsedStats.demonCount}`;
-      const newDemonsPS = document.createElement("p");
-      newDemonsPS.textContent = `Total Demons Summoned Per Second: ${parsedStats.dps}`;
-
-      demonCounterUI.appendChild(newTotalDemons);
-      demonCounterUI.appendChild(newDemonsPS);
-    });
-  }
-
-  demonClicker();
 
   upgradeObject.forEach(function (upgrade) {
     const upgradeButton = document.createElement("button");
@@ -218,6 +143,81 @@ async function cookieClickerAPI() {
     demonCounterUI.appendChild(newTotalDemons);
     demonCounterUI.appendChild(newDemonsPS);
   }, 1000);
+
+  //reset button
+  const resetButton = document.createElement("button");
+  resetButton.className = "resetButton";
+  resetButton.textContent = "RESET GAME";
+
+  const gameMenu = document.getElementById("menu");
+  gameMenu.appendChild(resetButton);
+
+  resetButton.addEventListener("click", function () {
+    const summonSound = document.createElement("audio");
+    summonSound.src = "audio/LUCIFER.mp3";
+    summonSound.volume = 0.25;
+    summonSound.id = "sound";
+    summonSound.play();
+
+    parsedStats.dps = 0;
+    parsedStats.demonCount = 0;
+
+    const stringifiedStats = JSON.stringify(stats);
+    localStorage.setItem("stats", stringifiedStats);
+
+    //updates the game UI
+    const demonCounterUI = document.getElementById("gameInfo");
+    demonCounterUI.innerHTML = null;
+    const newTotalDemons = document.createElement("p");
+    newTotalDemons.textContent = `Total Demons Summoned: ${parsedStats.demonCount}`;
+    const newDemonsPS = document.createElement("p");
+    newDemonsPS.textContent = `Total Demons Summoned Per Second: ${parsedStats.dps}`;
+    demonCounterUI.appendChild(newTotalDemons);
+    demonCounterUI.appendChild(newDemonsPS);
+  });
+
+  const storedStats = localStorage.getItem("stats");
+  const parsedStats = JSON.parse(storedStats);
+
+  const demonCounterUI = document.getElementById("gameInfo");
+  demonCounterUI.innerHTML = null;
+  const newTotalDemons = document.createElement("p");
+  newTotalDemons.textContent = `Total Demons Summoned: ${parsedStats.demonCount}`;
+  const newDemonsPS = document.createElement("p");
+  newDemonsPS.textContent = `Total Demons Summoned Per Second: ${parsedStats.dps}`;
+  demonCounterUI.appendChild(newTotalDemons);
+  demonCounterUI.appendChild(newDemonsPS);
+
+  function demonClicker() {
+    //CLICKER EVENT
+    const demonSpawner = document.getElementById("demonSpawner");
+    demonSpawner.addEventListener("click", function spawnDemon() {
+      //- sound on click
+      const upgradeSummonSound = document.createElement("audio");
+      upgradeSummonSound.src = "audio/click.m4a";
+      upgradeSummonSound.volume = 0.25;
+      upgradeSummonSound.play();
+
+      //-increments demon count state
+      parsedStats.demonCount++;
+
+      const stringifiedStats = JSON.stringify(parsedStats);
+      localStorage.setItem("stats", stringifiedStats);
+
+      //updates the game UI
+      const demonCounterUI = document.getElementById("gameInfo");
+      demonCounterUI.innerHTML = null;
+      const newTotalDemons = document.createElement("p");
+      newTotalDemons.textContent = `Total Demons Summoned: ${parsedStats.demonCount}`;
+      const newDemonsPS = document.createElement("p");
+      newDemonsPS.textContent = `Total Demons Summoned Per Second: ${parsedStats.dps}`;
+
+      demonCounterUI.appendChild(newTotalDemons);
+      demonCounterUI.appendChild(newDemonsPS);
+    });
+  }
+
+  demonClicker();
 }
 
 cookieClickerAPI();
