@@ -1,12 +1,3 @@
-const openingAudio = document.createElement("audio");
-openingAudio.src = "audio/LUCIFER.mp3";
-openingAudio.play();
-
-const backgroundSound = document.createElement("audio");
-backgroundSound.src = "audio/lava-loop.wav";
-backgroundSound.loop = true;
-backgroundSound.play();
-
 let stats = {
   demonCount: 0,
   dps: 0,
@@ -18,6 +9,17 @@ async function cookieClickerAPI() {
   );
   const upgradeObject = await response.json();
 
+  //start audio
+  const openingAudio = document.createElement("audio");
+  openingAudio.src = "audio/LUCIFER.mp3";
+  openingAudio.play();
+  //background audio
+  const backgroundSound = document.createElement("audio");
+  backgroundSound.src = "audio/lava-loop.wav";
+  backgroundSound.loop = true;
+  backgroundSound.play();
+
+  //reset button
   const resetButton = document.createElement("button");
   resetButton.className = "resetButton";
   resetButton.textContent = "RESET GAME";
