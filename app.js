@@ -42,9 +42,9 @@ async function cookieClickerAPI() {
     const demonCounterUI = document.getElementById("gameInfo");
     demonCounterUI.innerHTML = null;
     const newTotalDemons = document.createElement("p");
-    newTotalDemons.textContent = `Total Demons Spawned: ${parsedStats.demonCount}`;
+    newTotalDemons.textContent = `Total Demons Summoned: ${parsedStats.demonCount}`;
     const newDemonsPS = document.createElement("p");
-    newDemonsPS.textContent = `Total Demons Spawning Per Second: ${parsedStats.dps}`;
+    newDemonsPS.textContent = `Total Demons Summoned Per Second: ${parsedStats.dps}`;
 
     demonCounterUI.appendChild(newTotalDemons);
     demonCounterUI.appendChild(newDemonsPS);
@@ -59,9 +59,9 @@ async function cookieClickerAPI() {
   const demonCounterUI = document.getElementById("gameInfo");
   demonCounterUI.innerHTML = null;
   const newTotalDemons = document.createElement("p");
-  newTotalDemons.textContent = `Total Demons Spawned: ${parsedStats.demonCount}`;
+  newTotalDemons.textContent = `Total Demons Summoned: ${parsedStats.demonCount}`;
   const newDemonsPS = document.createElement("p");
-  newDemonsPS.textContent = `Total Demons Spawning Per Second: ${parsedStats.dps}`;
+  newDemonsPS.textContent = `Total Demons Summoned Per Second: ${parsedStats.dps}`;
   demonCounterUI.appendChild(newTotalDemons);
   demonCounterUI.appendChild(newDemonsPS);
 
@@ -69,10 +69,17 @@ async function cookieClickerAPI() {
     //CLICKER EVENT
     const demonSpawner = document.getElementById("demonSpawner");
     demonSpawner.addEventListener("click", function spawnDemon() {
+      //- sound on click
       const upgradeSummonSound = document.createElement("audio");
       upgradeSummonSound.src = "audio/click.m4a";
       upgradeSummonSound.volume = 0.25;
       upgradeSummonSound.play();
+
+      // //- animation on click
+      // const demonSpawn = document.createElement("img");
+      // demonSpawn.src = "";
+      // demonSpawn.id = "demonSpawn";
+      // demonSpawner.appendChild(demonSpawn);
 
       //-increments demon count state
       parsedStats.demonCount++;
@@ -87,9 +94,9 @@ async function cookieClickerAPI() {
       const demonCounterUI = document.getElementById("gameInfo");
       demonCounterUI.innerHTML = null;
       const newTotalDemons = document.createElement("p");
-      newTotalDemons.textContent = `Total Demons Spawned: ${parsedStats.demonCount}`;
+      newTotalDemons.textContent = `Total Demons Summoned: ${parsedStats.demonCount}`;
       const newDemonsPS = document.createElement("p");
-      newDemonsPS.textContent = `Total Demons Spawning Per Second: ${parsedStats.dps}`;
+      newDemonsPS.textContent = `Total Demons Summoned Per Second: ${parsedStats.dps}`;
 
       demonCounterUI.appendChild(newTotalDemons);
       demonCounterUI.appendChild(newDemonsPS);
@@ -129,9 +136,9 @@ async function cookieClickerAPI() {
         const demonCounterUI = document.getElementById("gameInfo");
         demonCounterUI.innerHTML = null;
         const newTotalDemons = document.createElement("p");
-        newTotalDemons.textContent = `Total Demons Spawned: ${parsedStats.demonCount}`;
+        newTotalDemons.textContent = `Total Demons Summoned: ${parsedStats.demonCount}`;
         const newDemonsPS = document.createElement("p");
-        newDemonsPS.textContent = `Total Demons Spawning Per Second: ${parsedStats.dps}`;
+        newDemonsPS.textContent = `Total Demons Summoned Per Second: ${parsedStats.dps}`;
 
         demonCounterUI.appendChild(newTotalDemons);
         demonCounterUI.appendChild(newDemonsPS);
@@ -222,9 +229,9 @@ async function cookieClickerAPI() {
     const demonCounterUI = document.getElementById("gameInfo");
     demonCounterUI.innerHTML = null;
     const newTotalDemons = document.createElement("p");
-    newTotalDemons.textContent = `Total Demons Spawned: ${parsedStats.demonCount}`;
+    newTotalDemons.textContent = `Total Demons Summoned: ${parsedStats.demonCount}`;
     const newDemonsPS = document.createElement("p");
-    newDemonsPS.textContent = `Total Demons Spawning Per Second: ${parsedStats.dps}`;
+    newDemonsPS.textContent = `Total Demons Summoned Per Second: ${parsedStats.dps}`;
 
     demonCounterUI.appendChild(newTotalDemons);
     demonCounterUI.appendChild(newDemonsPS);

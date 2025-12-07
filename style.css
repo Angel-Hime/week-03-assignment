@@ -108,7 +108,7 @@ h1 {
 }
 .demonSpawner:active {
   animation-name: grow-shrink;
-  animation-duration: 0.5s;
+  animation-duration: 0.1s;
   animation-iteration-count: 1;
 }
 @keyframes grow-shrink {
@@ -122,6 +122,16 @@ h1 {
     scale: 100%;
   }
 }
+/* #demonSpawn {
+  animation: slide-out 3s infinite alternate;
+
+  
+}
+@keyframes slide-out {
+  0% {
+  }
+} */
+
 .gameUI {
   min-height: fit-content;
   min-width: fit-content;
