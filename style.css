@@ -9,7 +9,6 @@
 body {
   display: grid;
   background-image: url("images/back-1.webp");
-  background-position: stretch;
   grid-template-columns: 0.1fr 2fr 0.1fr 2fr 0.1fr;
   grid-template-rows: 5fr;
   justify-items: center;
@@ -226,6 +225,7 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-position: stretch;
   }
   .mainClicker {
     justify-content: center;

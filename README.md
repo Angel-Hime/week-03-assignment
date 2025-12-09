@@ -16,6 +16,8 @@ I wanted to start by noting that this week was a write off for me as I have been
 
 I thought that I made it all work but when I ran it through from the GitHub link it didn't work. I have left it alone because I was just too ill to figure it out at such a late stage - I tried to do a few things but it just wouldn't function through github and I don't know why. The reflection provided is from when I had everything running via the local hosting facility of vscode and I am not going to change it all now because I am just annoyed.
 
+I did go back and add stuff and committed again so if that means you see this version and that is a boo boo on my behalf I am all good with getting the zero, I stopped caring when it stopped working from before regardless.
+
 Design Aspects:
 
 I feel that I may have 'phoned it in' a bit when it came to the design, there was so much more that I wanted to do but I just couldn't get my brain to function and I couldn't take my medication due to having the flu so my concentration was essentially non-existent. I tried to use optimised images and the correct measurements but it was a struggle to just get everything together with the miasma of conflusion that chose to settle within my brain this week.
